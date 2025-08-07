@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publications Summary Generator - Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e2228; /* Background color */
+            margin: 0;
+            padding: 0;
+            color: #ffffff; /* Text color */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .main-container {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 20px;
+        }
+        .header-title {
+            font-size: 2.5rem; /* Increased font size */
+            margin-bottom: 40px;
+            text-align: center;
+            font-weight: bold; /* Made font bold */
+        }
+        .login-container {
+            background-color: #3f3854; /* Container color */
+            padding: 40px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 400px; /* Max width of the container */
+        }
+        .login-title {
+            font-size: 2rem; /* Title size */
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 20px; /* Spacing between fields */
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1.1rem; /* Consistent font size for labels */
+        }
+        .form-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #6c63ff; /* Input border color */
+            border-radius: 5px;
+            background-color: #252a34; /* Input background color */
+            color: #ffffff; /* Input text color */
+            font-size: 1rem; /* Input font size */
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 12px; /* Button padding */
+            background-color: #5046e4; /* Button color */
+            color: white; /* Button text color */
+            border: none;
+            border-radius: 5px; /* Button border radius */
+            cursor: pointer;
+            font-size: 1.1rem; /* Button font size */
+            transition: background-color 0.3s; /* Button hover effect */
+        }
+        .submit-btn:hover {
+            background-color: #4038b3; /* Button hover color */
+        }
+        .error-message {
+            color: #ff6b6b; /* Error message color */
+            margin-top: 10px;
+            text-align: center; /* Centered error message */
+        }
+        .link-to-register {
+            margin-top: 20px; /* Spacing for the link */
+            text-align: center; /* Centered link text */
+            color: #ffffff; /* Link text color */
+        }
+        .link-to-register a {
+            color: #5046e4; /* Link color */
+            text-decoration: none; /* No underline */
+        }
+        .link-to-register a:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+        .footer {
+            background-color: #3f3854; /* Footer background color */
+            color: #ffffff; /* Footer text color */
+            text-align: center; /* Centered footer text */
+            padding: 15px 0; /* Footer padding */
+            margin-top: auto; /* Footer positioning */
+        }
+        .footer span {
+            display: block; /* Block display for spans */
+            line-height: 1.5; /* Line height for better readability */
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <h1 class="header-title">PUBLICATIONS SUMMARY GENERATOR</h1>
+        <div class="login-container">
+            <h2 class="login-title">Login</h2>
+            <form action="/form_login" method="post" id="loginForm">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" name="username" id="username" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" id="password" class="form-input" required>
+                </div>
+                <button type="submit" class="submit-btn">Login</button>
+            </form>
+        </div>
+
+        <!-- Display error message if any -->
+        <div class="error-message">{{ info }}</div>
+
+        <!-- Link to the registration page -->
+        <div class="link-to-register">
+            <p>Don't have an account? <a href="/register">Register here</a></p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <span>Innovator's Edge</span>
+        <span>Team Members:</span>
+        <span>Vaibhav Singh, Ria Singh, Divyanshu Verma</span>
+    </footer>
+</body>
+</html>

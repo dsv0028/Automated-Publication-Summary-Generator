@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publications Summary Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index_styles.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            color: #ffffff;
+        }
+        header {
+            background-color: #000000;
+            padding: 1rem;
+        }
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-right: 1rem;
+        }
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        h1, h2, h3 {
+            margin-top: 0;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+        }
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        .hero-image {
+            width: 300px;
+            height: 300px;
+            background-color: #4a0e4e;
+        }
+        .hero-text {
+            max-width: 50%;
+        }
+        .search-section {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        input[type="text"], input[type="email"], input[type="tel"], input[type="file"], textarea {
+            padding: 0.5rem;
+            width: 100%;
+            max-width: 300px;
+            margin-bottom: 1rem;
+            background-color: #2a2a2a;
+            border: 1px solid #444;
+            color: #fff;
+        }
+        .or {
+            margin: 1rem 0;
+        }
+        .how-it-works {
+            margin-bottom: 2rem;
+        }
+        .steps {
+            display: flex;
+            justify-content: space-between;
+        }
+        .step {
+            text-align: center;
+            width: 30%;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .feature {
+            background-color: #2a2a2a;
+            padding: 1rem;
+            border-radius: 5px;
+        }
+        .contact {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+        .contact-form {
+            width: 45%;
+        }
+        .contact-info {
+            width: 45%;
+        }
+        button {
+            background-color: #6200ee;
+            color: #ffffff;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+        }
+        footer {
+            background-color: #000000;
+            color: #ffffff;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+        .loading-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            text-align: center;
+            padding-top: 20%;
+        }
+        .loader {
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #3498db;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#">Home</a>
+            <a href="/instructions">Instructions</a>
+        </nav>
+    </header>
+    <main>
+        <h1>PUBLICATIONS SUMMARY GENERATOR</h1>
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-image">
+                    <img src="/static/Images/image.jpg" alt="Description of the image">
+                </div>
+                <div class="hero-text">
+                    <h2>"Transform your articles into concise, compelling summaries in seconds - effortless clarity at your fingertips!"</h2>
+                </div>
+            </div>
+        </section>
+        
+        <section class="search-section">
+            <h3>Want to search for single author:</h3>
+            <form id="searchForm" method="POST" action="{{ url_for('search_by_author') }}" class="search-form">
+                <div class="form-group">
+                    <label for="author_name">Search by Author Name</label>
+                    <input type="text" name="author_name" id="author_name" placeholder="Enter author name" required class="form-input">
+                </div>
+                <button type="submit" class="submit-btn">Search</button>
+            </form>
+            <div class="or">OR</div>
+            <h3>Search for Multiple Authors:</h3>
+            <form id="uploadForm" method="POST" enctype="multipart/form-data" action="{{ url_for('upload') }}" class="upload-form">
+                <div class="form-group">
+                    <label for="file" id="fileLabel" class="file-label" aria-label="Select a .xlsx or .bib file to upload">
+                        <i class="fas fa-upload"></i> Choose File
+                    </label>
+                    <input type="file" name="file" id="file" required autocomplete="file" aria-describedby="fileHelp" class="file-input">
+                    <small id="fileHelp" class="form-text text-muted">Please select a file.</small>
+                </div>
+                <button type="submit" class="submit-btn">Upload</button>
+            </form>
+        </section>
+        <section class="how-it-works">
+            <section class="how-it-works">
+                <h2 class="center-text">How it works</h2>
+                <!-- Content of the section -->
+            </section>
+            
+            <p class="center-paragraph">
+                Our solution helps simplify the process of summarizing faculty research. By uploading a file with author names, the tool automatically retrieves publication data from multiple sources and generates key metrics.
+            </p>
+            
+            <div class="steps">
+                <div class="step">
+                    <img src="/static/Images/Upload.jpg" alt="Upload Icon" style="width: 300px; height: 200px; margin-bottom: 15px;">
+                    <h3>1. Upload Your File</h3>
+                    <p>Submit the Author Names in Excel File or enter a single Author name.</p>
+                </div>
+                
+                <div class="step">
+                    <img src="/static/Images/Modify.jpg" alt="Upload Icon" style="width: 300px; height: 200px; margin-bottom: 15px;">
+                    <h3>2. Summarizes The Publications</h3>
+                    <p>Refine the AI-generated summary with additional prompts for more focused or detailed results.</p>
+                </div>
+                <div class="step">
+                    <img src="/static/Images/Export.jpg" alt="Upload Icon" style="width: 300px; height: 200px; margin-bottom: 15px;">
+                    <h3>3. Download and Share</h3>
+                    <p>Download the summary as a PDF or share it online with a unique URL.</p>
+                </div>
+            </div>
+        </section>
+        <section>
+            
+            <section class="how-it-works">
+                <h2 class="center-text">Why choose My Publication Summarizer?</h2>
+                <!-- Content of the section -->
+            </section>
+            
+            <div class="features">
+                <div class="feature">
+                    <img src="/static/Images/1.jpg" alt="Upload Icon" style="width: 50px; height: 50px; margin-bottom: 10px;">
+                    <h3>Upload Data Files</h3>
+                    <p>Upload Excel (.xlsx) or CSV files with author names to initiate the process.</p>
+                </div>
+                <div class="feature">
+                    <img src="/static/Images/2.jpg" alt="Upload Icon" style="width: 50px; height: 50px; margin-bottom: 10px;">
+                    <h3>Interactive Graphs</h3>
+                    <p>Visualize research trends with charts that provide clear insights into the data.</p>
+                </div>
+                <div class="feature">
+                    <img src="/static/Images/3.jpg" alt="Upload Icon" style="width: 50px; height: 50px; margin-bottom: 10px;">
+                    <h3>Retrieve Publication Data</h3>
+                    <p>The tool automatically pulls data from Google Scholar to generate a comprehensive list of publications.</p>
+                </div>
+                <div class="feature">
+                    <img src="/static/Images/4.jpg" alt="Upload Icon" style="width: 50px; height: 50px; margin-bottom: 10px;">
+                    <h3>Key Metrics</h3>
+                    <p>Get instant calculation of important research metrics like H-index and i10-index.</p>
+                </div>
+                <div class="feature">
+                    <img src="/static/Images/5.jpg" alt="Upload Icon" style="width: 50px; height: 50px; margin-bottom: 10px;">
+                    <h3>Customizable Summary Report</h3>
+                    <p>Download a customizable summary report in Word format to use for accreditation or impact reports.</p>
+                </div>
+                <div class="feature">
+                    <img src="/static/Images/6.jpg" alt="Upload Icon" style="width: 50px; height: 50px; margin-bottom: 10px;">
+                    <h3>Performance & Efficiency</h3>
+                    <p>Real-time Processing: Generates summaries quickly, making it suitable for live event updates or dynamic environments.</p>
+                </div>
+            </div>
+        </section>
+        <hr style="border: 0; height: 2px; background-color: white; width: 100%;">
+
+        <section class="contact">
+            <div class="contact-info">
+                <h2>Contact Us-<br>Please Drop a Message</h2>
+                <p>Get in touch and let us know how we can help. Fill out the form and i'll be in touch as soon as possible.</p>
+                <p>Address: Innovator's Edge, Ghaziabad, Uttar Pradesh, India</p>
+                <p>Phone: +91 1234567890</p>
+                <p>Email: innovatoredge@kiet.edu</p>
+            </div>
+            <form class="contact-form" id="contact-form">
+                <input type="text" id="name" placeholder="Name" required>
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="tel" id="phone" placeholder="Phone">
+                <textarea id="message" placeholder="Message" required></textarea>
+                <br>
+                <button type="submit">SEND</button>
+            </form>
+        </section>
+    </main>
+    <div id="loading" class="loading-container">
+        <div class="loader"></div>
+        <p>Processing your file, please wait...</p>
+    </div>
+    <footer>
+        <p>&copy; Innovator's Edge</p>
+        <p>Team Members: Vaibhav singh, Ria Singh, Divyanshu Verma</p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        document.getElementById('file').addEventListener('change', function () {
+            var fileName = this.files.length ? this.files[0].name : 'No file chosen';
+            this.nextElementSibling.textContent = fileName;
+        });
+
+        $(document).ready(function () {
+            $('#uploadForm').on('submit', function (e) {
+                e.preventDefault();
+                $('#loading').show();
+                var formData = new FormData(this);
+                $.ajax({
+                    xhr: function() {
+                        var xhr = new XMLHttpRequest();
+                        xhr.upload.addEventListener('progress', function(e) {
+                            if (e.lengthComputable) {
+                                var percentComplete = Math.round((e.loaded / e.total) * 100);
+                                if (percentComplete === 100) {
+                                    $('#loading p').text('Processing your file, please wait...');
+                                }
+                            }
+                        }, false);
+                        return xhr;
+                    },
+                    url: '/upload',
+                    type: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(data) {
+                        window.location.href = '/results';
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        $('#loading').hide();
+                        alert('An error occurred: ' + errorThrown);
+                    }
+                });
+            });
+
+            $('#searchForm').on('submit', function (e) {
+                e.preventDefault();
+                $('#loading').show();
+                $.ajax({
+                    url: '{{ url_for("search_by_author") }}',
+                    type: 'POST',
+                    data: $(this).serialize(),
+                    success: function(data) {
+                        window.location.href = '{{ url_for("results") }}';
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        $('#loading').hide();
+                        alert('An error occurred: ' + errorThrown);
+                    }
+                });
+            });
+
+            $('#contact-form').on('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your message. We will get back to you soon!');
+                this.reset();
+            });
+        });
+    </script>
+</body>
+</html>

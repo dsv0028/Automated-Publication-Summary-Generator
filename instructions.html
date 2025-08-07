@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step-By-Step Instructions</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #16213e;
+            padding: 20px;
+            display: flex;
+            flex-direction: column; /* Stack items vertically */
+            align-items: center; /* Center the heading */
+        }
+        
+        nav {
+            width: 100%; /* Make nav take full width */
+            text-align: left; /* Align nav items to the left */
+        }
+        
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-right: 15px; /* Space between links */
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: #6200ee;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .step {
+            background-color: #0f3460;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+        .step h2 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+        .arrow {
+            font-size: 48px;
+            text-align: center;
+            margin: 20px 0;
+            animation: bounce 1s infinite;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        .tips {
+            background-color: #16213e;
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .tips h3 {
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+        footer {
+            background-color: #000000;
+            color: #ffffff;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 30px;
+        }
+        footer p {
+            margin: 5px 0;
+        }
+        h1 {
+            text-align: center;
+          }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/index">Home</a>
+            <a href="/instructions">Instructions</a>
+        </nav>
+        
+    </header>
+    <h1>Step-By-Step Instructions</h1>
+
+    <main>
+        <div class="step">
+            <h2>1. Author Input</h2>
+            <p>Enter author name(s) in the designated field or upload an Excel file for multiple authors.</p>
+        </div>
+
+        <div class="arrow">↓</div>
+        <img src="\static\Images\9.jpg" alt="Description of image" style="float: left; width: 300px; height: auto; margin-right: 10px;">
+
+        <div class="step">
+            <h2>2. User Upload</h2>
+            <p>Click the "Upload" button to proceed after entering or uploading author names.</p>
+        </div>
+
+        <div class="arrow">↓</div>
+
+        <div class="step">
+            <h2>3. File Validation</h2>
+            <p>The system will check if the uploaded file is in the correct format (.xlsx or .bib).</p>
+        </div>
+
+        <div class="arrow">↓</div>
+       
+
+
+        <div class="step">
+            <h2>4. Extract Author Names</h2>
+            <p>The system will automatically extract author names from the uploaded file.</p>
+        </div>
+
+        <div class="arrow">↓</div>
+
+        <div class="step">
+            <h2>5. Data Retrieval</h2>
+            <p>Publication data will be fetched from sources such as Google Scholar, Scopus, PubMed, or Web of Science.</p>
+        </div>
+        <img src="\static\Images\10.jpg" alt="Description of image" style="float: right; width: 300px; height: auto; margin-left: 10px;">
+
+        <div class="arrow">↓</div>
+
+        <div class="step">
+            <h2>6. Data Processing & Analysis</h2>
+            <p>The extracted data will be processed and analyzed to generate insights.</p>
+        </div>
+
+        <div class="arrow">↓</div>
+       
+
+
+        <div class="step">
+            <h2>7. Generate Analyzed Table</h2>
+            <p>An analyzed table will be created to summarize the publication data.</p>
+        </div>
+
+        <div class="arrow">↓</div>
+
+        <div class="step">
+            <h2>8. Organize Data</h2>
+            <p>The data can be organized by year and is searchable for easy access.</p>
+        </div>
+
+        <div class="arrow">↓</div>
+
+        <div class="step">
+            <h2>9. Display Interactive Graphs</h2>
+            <p>Interactive graphs will be generated to visualize your publication data.</p>
+        </div>
+
+        <div class="arrow">↓</div>
+        <img src="\static\Images\11.jpg" alt="Description of image" style="float: left; width: 300px; height: auto; margin-right: 10px;">
+
+        <div class="step">
+            <h2>10. Generate Summary Report</h2>
+            <p>A downloadable summary report in Word format will be prepared for your convenience.</p>
+        </div>
+
+        <div class="arrow">↓</div>
+
+        <div class="step">
+            <h2>11. Results Review</h2>
+            <p>Finally, the results will be available for your review. You can download the summary report and interact with the data visualizations.</p>
+        </div>
+
+        <div class="tips">
+            <h3>Tips for Best Results</h3>
+            <ul>
+                <li>Ensure your Excel file is properly formatted, with one author per row.</li>
+                <li>Double-check that the file type is correct before uploading.</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; Innovator's Edge</p>
+        <p>Team Members: Vaibhav Singh, Ria Singh, Divyanshu Verma</p>
+    </footer>
+</body>
+</html>
