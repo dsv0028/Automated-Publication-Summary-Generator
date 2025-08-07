@@ -1,0 +1,203 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.navbar {
+    background-color: #000000;
+    padding: 1rem;
+}
+
+.navbar-brand {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.header-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.header-subtitle {
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+
+.hero-content {
+    display: flex;              /* This makes the image and text appear side-by-side */
+    justify-content: space-between; /* Ensures spacing between image and text */
+    align-items: center;        /* Vertically centers the content */
+    padding: 20px;              /* Adds padding around the content */
+}
+.center-text {
+    text-align: center;   /* Centers the text horizontally */
+}
+.center-paragraph {
+    text-align: center;  /* Centers the text inside the paragraph */
+}
+
+
+.hero-image {
+    flex: 1;                    /* The image will take up 1 part of the available space */
+    max-width: 400px;           /* You can adjust this value based on the image size */
+    margin-right: 60px;         /* Adds space between the image and the text */
+}
+
+.hero-image img {
+    width: 100%;                /* Ensures the image scales to fit the container */
+    height: auto;               /* Maintains aspect ratio */
+    border-radius: 22px;         /* Optional: Adds rounded corners to the image */
+}
+
+.hero-text {
+    flex: 2;                    /* The text will take up 2 parts of the available space */
+    color: #fff;                /* Assuming you're using a dark background, adjust text color */
+    font-size: 1.5rem;          /* Adjusts text size for better readability */
+    max-width: 600px;           /* Ensures the text area doesn’t get too wide */
+}
+
+
+.search-form, .upload-form {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-input {
+    padding: 0.5rem;
+    width: 100%;
+    max-width: 300px;
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.submit-btn {
+    background-color: #6200ee;
+    color: #ffffff;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.or {
+    margin: 1rem 0;
+    font-weight: bold;
+}
+
+.how-it-works {
+    margin-bottom: 2rem;
+}
+
+.steps {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.step {
+    text-align: center;
+    width: 30%;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.feature {
+    background-color: #2a2a2a;
+    padding: 1rem;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.feature img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 0.5rem;
+}
+
+.contact {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.contact-info, .contact-form {
+    width: 45%;
+}
+
+.footer {
+    background-color: #000000;
+    color: #ffffff;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+.loading-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    text-align: center;
+    padding-top: 20%;
+}
+
+.loader {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.file-input {
+    display: none;
+}
+
+.file-label {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #6200ee;
+    color: #ffffff;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.text-muted {
+    color: #888;
+    font-size: 0.8rem;
+}
